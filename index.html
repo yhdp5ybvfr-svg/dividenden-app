@@ -620,33 +620,35 @@
 
     const positions = [...portfolio].sort((a, b) => b.value - a.value);
 
-    document.getElementById("positions").innerHTML = positions.map(p => `
+document.getElementById("positions").innerHTML = positions.map(p => `
 
-      <div class="position">
+  <div class="position">
 
-        <div class="position-left">
+    <div class="position-left">
 
-          <div class="logo">${p.ticker.slice(0, 3)}</div>
+      <div class="logo">${p.ticker.slice(0, 3)}</div>
 
-          <div>
+      <div>
 
-            <div class="name">${p.name}</div>
+        <div class="name">${p.name}</div>
 
-            <div class="meta">${p.category} · ${p.country}</div>
-
-          </div>
-
-        </div>
-
-        <div class="right">
-
-          <strong>${euro(p.value)}</strong>
-
-          <div class="meta">${euro(p.dividend)} Div.</div>
-
-        </div>
+        <div class="meta">${p.category} · ${p.country}</div>
 
       </div>
+
+    </div>
+
+    <div class="right">
+
+      <strong>${euro(p.value)}</strong>
+
+      <div class="meta">${euro(p.dividend)} Div.</div>
+
+    </div>
+
+  </div>
+
+`).join("");
 
 
   </script>
