@@ -557,18 +557,12 @@
   </main>
 
   <nav class="bottom-nav">
-
-    <div class="nav-item active"><span>⌂</span>Home</div>
-
-    <div class="nav-item"><span>▣</span>Depot</div>
-
-    <div class="nav-item"><span>◌</span>Dividenden</div>
-
-    <div class="nav-item"><span>⌁</span>Analyse</div>
-
-    <div class="nav-item"><span>•••</span>Mehr</div>
-
-  </nav>
+  <div class="nav-item active" data-screen="home"><span>⌂</span>Home</div>
+  <div class="nav-item" data-screen="depot"><span>▣</span>Depot</div>
+  <div class="nav-item" data-screen="dividenden"><span>◌</span>Dividenden</div>
+  <div class="nav-item" data-screen="analyse"><span>⌁</span>Analyse</div>
+  <div class="nav-item" data-screen="mehr"><span>•••</span>Mehr</div>
+</nav>
 
   <script src="data.js"></script>
 
@@ -655,6 +649,18 @@
       </div>
 
     `).join("");
+
+    document.querySelectorAll(".nav-item").forEach(item => {
+
+  item.addEventListener("click", () => {
+
+    document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
+
+    item.classList.add("active");
+
+  });
+
+});
 
   </script>
 
