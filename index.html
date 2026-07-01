@@ -16,21 +16,29 @@
 
   <h1>Income Compass</h1>
 
-  <p>Dein persönliches Dividenden-Depot.</p>
+  <p>Depotdaten werden aus data.js geladen.</p>
 
-  <h2>Depotübersicht</h2>
+  <h2 id="depotwert">Lade Depotwert...</h2>
 
-  <ul>
+  <h2 id="dividende">Lade Dividende...</h2>
 
-    <li>Depotwert: 9.465,51 €</li>
+  <script src="data.js"></script>
 
-    <li>Einstand: 7.945,26 €</li>
+  <script>
 
-    <li>Jahresdividende: 363,07 €</li>
+    const depotwert = portfolio.reduce((sum, p) => sum + p.value, 0);
 
-    <li>Yield on Cost: 4,57 %</li>
+    const dividende = portfolio.reduce((sum, p) => sum + p.dividend, 0);
 
-  </ul>
+    document.getElementById("depotwert").textContent =
+
+      "Depotwert: " + depotwert.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+
+    document.getElementById("dividende").textContent =
+
+      "Jahresdividende: " + dividende.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+
+  </script>
 
 </body>
 
