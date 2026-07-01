@@ -1,4 +1,4 @@
-const portfolio = [
+window.portfolio = [
 
   {
 
