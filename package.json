@@ -1,5 +1,20 @@
 {
-  "name": "dividenden-app",
-  "version": "1.0.0",
-  "private": true
+  "name": "income-compass",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Premium mobile-first dividend investing dashboard",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {}
 }
