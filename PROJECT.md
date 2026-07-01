@@ -1,111 +1,207 @@
 # Income Compass
 
-## Mission
+## Vision
 
 Income Compass ist ein persönliches Investment-Cockpit für langfristige Einkommensinvestoren.
 
-Ziel: Dividenden, Cashflow, Yield on Cost, Vermögensentwicklung und Investmententscheidungen übersichtlich an einem Ort bündeln.
+Die App soll Anlegern helfen, Vermögen aufzubauen, passives Einkommen zu steigern und bessere Investmententscheidungen zu treffen.
 
-## Designrichtung
+Unser Ziel ist nicht einfach eine Depot-App, sondern die beste mobile App für Dividendeninvestoren.
 
-- Schlicht, modern, informativ
+---
 
-- Inspiriert von Trade Republic
+# Grundprinzipien
 
-- Viel Weißraum
+Die App ist:
 
-- Große Kennzahlen
+- Mobile First
 
-- Ruhige Grafiken
+- Schnell
 
-- Wenige Farben
+- Modern
 
-- Mobile-first für iPhone
+- Minimalistisch
 
-## Aktueller Stand
+- Datengetrieben
 
-- GitHub-Repository erstellt
+- Einfach zu bedienen
 
-- Vercel verbunden
+Jede Ansicht soll sich wie eine hochwertige iPhone-App anfühlen.
 
-- Erste Testseite online
+---
 
-- Depotdaten in `data.js` angelegt
+# Design
 
-## Version 0.1 – Dashboard
+Inspiration:
+
+- Apple
+
+- Delta Investment Tracker
+
+- Parqet
+
+- Snowball Analytics
+
+Designsprache:
+
+- dunkler Hintergrund
+
+- große Karten
+
+- weiche Rundungen
+
+- klare Typografie
+
+- wenige Akzentfarben
+
+- hochwertige Animationen
+
+---
+
+# Module
+
+## Home
 
 - Depotwert
 
-- Einstand
+- Tagesperformance
 
-- Buchgewinn
-
-- Performance
+- Gesamtrendite
 
 - Jahresdividende
 
-- Yield on Cost
+- Monatlicher Cashflow
 
-- aktuelle Dividendenrendite
-
-- monatlicher Cashflow
-
-- Top-Positionen
-
-- einfache Liniengrafik
-
-## Version 0.2 – Dividendenkalender
-
-- Monatsübersicht
-
-- erwartete Ausschüttungen
-
-- Heatmap
-
-- nächste Dividendenzahlung
-
-- Lücken im Dividendenkalender erkennen
-
-## Version 0.3 – Analytics
-
-- Asset Allocation
-
-- Länderaufteilung
-
-- Sektoren
-
-- Währungen
+- Net Worth
 
 - Income Score
 
-- Klumpenrisiken
+- Kommende Dividende
 
-## Version 0.4 – Investmentprofil
+- Top Positionen
 
-- Strategie: Income / Value / Infrastruktur
+---
 
-- Fokus: reale Assets, Dividenden, Cashflow
+## Depot
 
-- Sparrate
+- Alle Positionen
 
-- Ziele
+- Performance
+
+- Gewichtung
+
+- Kaufhistorie
+
+- Dividendenrendite
+
+- Yield on Cost
+
+---
+
+## Dividenden
+
+- Kalender
+
+- Heatmap
+
+- Monatsübersicht
+
+- Ex-Tage
+
+- Zahlungstage
+
+- Prognosen
+
+---
+
+## Analyse
+
+- Asset Allocation
+
+- Branchen
+
+- Länder
+
+- Währungen
+
+- Dividend Growth
+
+- Income Forecast
+
+---
+
+## Aktie
+
+- Kurs
+
+- Chart
+
+- Kennzahlen
+
+- Dividendenhistorie
+
+- News
+
+- Kaufhistorie
+
+---
+
+## Income AI
+
+Persönlicher Investment-Assistent.
+
+Beispiele:
+
+- Welche Aktie erhöht meine Jahresdividende am stärksten?
+
+- Welche Position ist unterbewertet?
+
+- Welche Dividendenlücke habe ich?
+
+- Wie entwickelt sich mein Einkommen bis 2035?
+
+---
+
+# Langfristige Ziele
+
+- Live-Aktienkurse
+
+- Automatische Dividendenerkennung
+
+- Broker-Import
+
+- PDF-Reports
 
 - Watchlist
 
-## Version 1.0 – Automatisierung
+- Dividend Forecast
 
-- Kurse automatisch aktualisieren
+- Multi-Währungs-Portfolio
 
-- Dividenden automatisch aktualisieren
+- Steuerübersicht
 
-- neue Positionen hinzufügen
+- Portfolio Backup
 
-- Käufe und Verkäufe erfassen
+- iPhone App
 
-- Yield on Cost automatisch berechnen
+- Android App
 
-- CSV-Import prüfen
+---
 
-## Langfristige Vision
+# Entwicklungsstrategie
 
-Income Compass soll sich anfühlen wie Trade Republic, aber denken wie ein professionelles Analyse-Tool für Dividendeninvestoren.
+Wir entwickeln Schritt für Schritt.
+
+Qualität ist wichtiger als Geschwindigkeit.
+
+Jede neue Funktion muss:
+
+- einfach sein
+
+- performant sein
+
+- gut aussehen
+
+- leicht wartbar sein
+
+Income Compass soll langfristig eine Premium-App werden.
