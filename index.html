@@ -10,33 +10,651 @@
 
   <title>Income Compass</title>
 
+  <style>
+
+    :root {
+
+      --bg: #0f1115;
+
+      --card: #181b22;
+
+      --card-soft: #20242d;
+
+      --text: #f4f6fb;
+
+      --muted: #8f96a3;
+
+      --green: #55d17a;
+
+      --red: #ff6b6b;
+
+      --accent: #7567ff;
+
+      --border: rgba(255,255,255,0.08);
+
+      --radius: 22px;
+
+    }
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+    }
+
+    .app {
+
+      max-width: 430px;
+
+      margin: 0 auto;
+
+      padding: 24px 16px 92px;
+
+    }
+
+    .topbar {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 22px;
+
+    }
+
+    .hello {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-top: 4px;
+
+    }
+
+    h1 {
+
+      margin: 0;
+
+      font-size: 18px;
+
+    }
+
+    .icon {
+
+      width: 36px;
+
+      height: 36px;
+
+      border-radius: 50%;
+
+      background: var(--card);
+
+      display: grid;
+
+      place-items: center;
+
+      color: var(--muted);
+
+      border: 1px solid var(--border);
+
+    }
+
+    .hero {
+
+      background: linear-gradient(160deg, #1b1f29, #121419);
+
+      border: 1px solid var(--border);
+
+      border-radius: 28px;
+
+      padding: 22px;
+
+      margin-bottom: 14px;
+
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+
+    }
+
+    .label {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+    }
+
+    .value {
+
+      font-size: 34px;
+
+      font-weight: 800;
+
+      letter-spacing: -1px;
+
+      margin: 8px 0 4px;
+
+    }
+
+    .positive {
+
+      color: var(--green);
+
+    }
+
+    .chart {
+
+      height: 82px;
+
+      margin-top: 16px;
+
+    }
+
+    .chart svg {
+
+      width: 100%;
+
+      height: 100%;
+
+    }
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+
+    }
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 16px;
+
+    }
+
+    .kpi {
+
+      min-height: 104px;
+
+    }
+
+    .kpi-icon {
+
+      width: 26px;
+
+      height: 26px;
+
+      border-radius: 8px;
+
+      display: grid;
+
+      place-items: center;
+
+      background: var(--card-soft);
+
+      margin-bottom: 12px;
+
+      font-size: 14px;
+
+    }
+
+    .kpi strong {
+
+      display: block;
+
+      font-size: 20px;
+
+      margin-top: 5px;
+
+    }
+
+    .section-title {
+
+      font-size: 18px;
+
+      margin: 24px 0 12px;
+
+    }
+
+    .dividend-card {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+      align-items: center;
+
+    }
+
+    .badge {
+
+      width: 38px;
+
+      height: 38px;
+
+      border-radius: 12px;
+
+      background: #d83434;
+
+      display: grid;
+
+      place-items: center;
+
+      font-weight: 700;
+
+      font-size: 12px;
+
+    }
+
+    .position {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 14px 0;
+
+      border-bottom: 1px solid var(--border);
+
+    }
+
+    .position:last-child {
+
+      border-bottom: none;
+
+    }
+
+    .logo {
+
+      width: 34px;
+
+      height: 34px;
+
+      border-radius: 10px;
+
+      background: var(--card-soft);
+
+      display: grid;
+
+      place-items: center;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      color: var(--text);
+
+      flex: 0 0 auto;
+
+    }
+
+    .position-left {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      min-width: 0;
+
+    }
+
+    .name {
+
+      font-weight: 650;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      max-width: 190px;
+
+    }
+
+    .meta {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 3px;
+
+    }
+
+    .right {
+
+      text-align: right;
+
+      white-space: nowrap;
+
+    }
+
+    .bottom-nav {
+
+      position: fixed;
+
+      left: 50%;
+
+      bottom: 0;
+
+      transform: translateX(-50%);
+
+      width: 100%;
+
+      max-width: 430px;
+
+      background: rgba(15,17,21,.92);
+
+      backdrop-filter: blur(16px);
+
+      border-top: 1px solid var(--border);
+
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+
+      padding: 10px 8px 18px;
+
+    }
+
+    .nav-item {
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 11px;
+
+    }
+
+    .nav-item span {
+
+      display: block;
+
+      font-size: 19px;
+
+      margin-bottom: 4px;
+
+    }
+
+    .nav-item.active {
+
+      color: var(--text);
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <h1>Income Compass</h1>
+  <main class="app">
 
-  <p>Depotdaten werden aus data.js geladen.</p>
+    <header class="topbar">
 
-  <h2 id="depotwert">Lade Depotwert...</h2>
+      <div>
 
-  <h2 id="dividende">Lade Dividende...</h2>
+        <h1>Income Compass</h1>
+
+        <div class="hello">Hallo Jannik 👋</div>
+
+      </div>
+
+      <div class="icon">🔔</div>
+
+    </header>
+
+    <section class="hero">
+
+      <div class="label">Depotwert</div>
+
+      <div class="value" id="depotwert">–</div>
+
+      <div class="positive" id="performance">–</div>
+
+      <div class="chart">
+
+        <svg viewBox="0 0 320 90" preserveAspectRatio="none">
+
+          <polyline
+
+            points="0,70 25,62 50,66 75,48 100,55 125,38 150,44 175,30 200,34 225,24 250,28 275,18 320,8"
+
+            fill="none"
+
+            stroke="#55d17a"
+
+            stroke-width="4"
+
+            stroke-linecap="round"
+
+            stroke-linejoin="round"
+
+          />
+
+        </svg>
+
+      </div>
+
+    </section>
+
+    <section class="grid">
+
+      <div class="card kpi">
+
+        <div class="kpi-icon">💸</div>
+
+        <div class="label">Jahresdividende</div>
+
+        <strong id="dividende">–</strong>
+
+        <div class="meta positive">Cashflow p.a.</div>
+
+      </div>
+
+      <div class="card kpi">
+
+        <div class="kpi-icon">🎯</div>
+
+        <div class="label">Yield on Cost</div>
+
+        <strong id="yoc">–</strong>
+
+        <div class="meta">auf Einstand</div>
+
+      </div>
+
+      <div class="card kpi">
+
+        <div class="kpi-icon">📅</div>
+
+        <div class="label">Monatlich</div>
+
+        <strong id="monatlich">–</strong>
+
+        <div class="meta">Ø Cashflow</div>
+
+      </div>
+
+      <div class="card kpi">
+
+        <div class="kpi-icon">🏦</div>
+
+        <div class="label">Net Worth</div>
+
+        <strong id="networth">–</strong>
+
+        <div class="meta">inkl. Immobilien</div>
+
+      </div>
+
+    </section>
+
+    <h2 class="section-title">Nächste Dividende</h2>
+
+    <section class="card dividend-card">
+
+      <div class="position-left">
+
+        <div class="badge">KHC</div>
+
+        <div>
+
+          <div class="name">Kraft Heinz</div>
+
+          <div class="meta">Quartalsdividende · Dezember</div>
+
+        </div>
+
+      </div>
+
+      <div class="right">
+
+        <strong id="nextDividend">–</strong>
+
+        <div class="meta">erwartet</div>
+
+      </div>
+
+    </section>
+
+    <h2 class="section-title">Top Positionen</h2>
+
+    <section class="card" id="positions"></section>
+
+  </main>
+
+  <nav class="bottom-nav">
+
+    <div class="nav-item active"><span>⌂</span>Home</div>
+
+    <div class="nav-item"><span>▣</span>Depot</div>
+
+    <div class="nav-item"><span>◌</span>Dividenden</div>
+
+    <div class="nav-item"><span>⌁</span>Analyse</div>
+
+    <div class="nav-item"><span>•••</span>Mehr</div>
+
+  </nav>
 
   <script src="data.js"></script>
 
   <script>
 
+    const euro = (value) =>
+
+      value.toLocaleString("de-DE", {
+
+        style: "currency",
+
+        currency: "EUR"
+
+      });
+
+    const percent = (value) =>
+
+      value.toLocaleString("de-DE", {
+
+        style: "percent",
+
+        minimumFractionDigits: 1,
+
+        maximumFractionDigits: 1
+
+      });
+
     const depotwert = portfolio.reduce((sum, p) => sum + p.value, 0);
+
+    const einstand = portfolio.reduce((sum, p) => sum + p.cost, 0);
 
     const dividende = portfolio.reduce((sum, p) => sum + p.dividend, 0);
 
-    document.getElementById("depotwert").textContent =
+    const buchgewinn = depotwert - einstand;
 
-      "Depotwert: " + depotwert.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+    const performance = buchgewinn / einstand;
 
-    document.getElementById("dividende").textContent =
+    const yoc = dividende / einstand;
 
-      "Jahresdividende: " + dividende.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+    const monatlich = dividende / 12;
+
+    document.getElementById("depotwert").textContent = euro(depotwert);
+
+    document.getElementById("performance").textContent = "+" + percent(performance) + " seit Kauf";
+
+    document.getElementById("dividende").textContent = euro(dividende);
+
+    document.getElementById("yoc").textContent = percent(yoc);
+
+    document.getElementById("monatlich").textContent = euro(monatlich);
+
+    document.getElementById("networth").textContent = euro(15000);
+
+    document.getElementById("nextDividend").textContent = euro(35.06 / 4);
+
+    const positions = [...portfolio].sort((a, b) => b.value - a.value);
+
+    document.getElementById("positions").innerHTML = positions.map(p => `
+
+      <div class="position">
+
+        <div class="position-left">
+
+          <div class="logo">${p.ticker.slice(0, 3)}</div>
+
+          <div>
+
+            <div class="name">${p.name}</div>
+
+            <div class="meta">${p.category} · ${p.country}</div>
+
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          <strong>${euro(p.value)}</strong>
+
+          <div class="meta">${euro(p.dividend)} Div.</div>
+
+        </div>
+
+      </div>
+
+    `).join("");
 
   </script>
 
